@@ -24,10 +24,13 @@ struct UnsplashAPI {
         return components.url
     }
 
-    func topicsUrl() -> URL? {
+    func topicsUrl(orderBy: String = "popular", perPage: Int = 10) -> URL? {
         var components = unsplashApiBaseUrl()
         components.path = "/topics"
-        components.queryItems?.append(URLQueryItem(name: "per_page", value: "10"))
+        components.queryItems?.append(contentsOf: [
+            URLQueryItem(name: "order_by", value: orderBy),
+            URLQueryItem(name: "per_page", value: "\(perPage)")
+        ])
         return components.url
     }
 

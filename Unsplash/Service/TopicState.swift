@@ -10,13 +10,9 @@ import Combine
 
 @MainActor
 class TopicState: ObservableObject {
-    // Liste des topics (catégories d'images)
     @Published var topics: [UnsplashTopic] = []
-    // Photos associées à un topic spécifique
     @Published var topicPhotos: [UnsplashPhoto] = []
-    // Gestion des erreurs
     @Published var errorMessage: String? = nil
-    // Indicateur de chargement
     @Published var isLoading: Bool = false
 
     private let unsplashAPI = UnsplashAPI()

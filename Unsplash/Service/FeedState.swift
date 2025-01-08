@@ -9,7 +9,6 @@ class FeedState: ObservableObject {
 
     private let unsplashAPI = UnsplashAPI()
 
-    /// Fonction pour charger le flux d'images
     func fetchHomeFeed(orderBy: String = "popular", perPage: Int = 10) async {
         isLoading = true
         errorMessage = nil
